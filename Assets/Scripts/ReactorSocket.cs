@@ -6,7 +6,9 @@ namespace IronTrauma {
 	public class ReactorSocket : MonoBehaviour {
 		const float UsageRate = 0.1f;
 		
-		public Transform InsertedRodRoot;
+		public Transform MinRodPosition;
+		public Transform MaxRodPosition;
+
 
 		public bool HasRod => _activeRod && _isInserted;
 
@@ -22,11 +24,14 @@ namespace IronTrauma {
 				return;
 			}
 			var rodUsage = UsageRate * passedTime;
-			_activeRod.LeftPower -= rodUsage;
+			_activeRod.LeftPower          -= rodUsage;
+			_activeRod.transform.position =  Vector3.Lerp(MinRodPosition.position, MaxRodPosition.position, 1 - RodPower);
 			if ( _activeRod.LeftPower <= 0 ) {
 				var rod = _activeRod;
 				RemoveRod();
-				Destroy(rod.gameObject);
+				var throwDirection = (MinRodPosition.position - MaxRodPosition.position).normalized;
+				rod.Rigidbody.AddForce(throwDirection * 10, ForceMode.Impulse);
+				rod.MakeUnstable();
 			}
 		}
 		
@@ -58,7 +63,7 @@ namespace IronTrauma {
 
 		void OnLastSelectedExit(SelectExitEventArgs arg0) {
 			_isInserted                      = true;
-			_activeRod.transform.position    = InsertedRodRoot.position;
+			_activeRod.transform.position    = MinRodPosition.position;
 			_activeRod.transform.rotation    = Quaternion.identity;
 			_activeRod.Rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 		}

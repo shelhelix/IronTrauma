@@ -6,8 +6,15 @@ namespace IronTrauma {
 		public float     Power;
 		public float     LeftPower;
 
+		public MeshRenderer MeshRenderer;
+		public Material     UnstableRodMaterial;
+
 		protected void Start() {
 			LeftPower = Power;
+		}
+
+		public void MakeUnstable() {
+			MeshRenderer.material = UnstableRodMaterial;
 		}
 	}
 }
