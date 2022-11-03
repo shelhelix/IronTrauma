@@ -4,7 +4,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 namespace IronTrauma {
 	public class ReactorSocket : MonoBehaviour {
-		const float UsageRate = 0.1f;
+		public const float MaxOutputRatePerSecond = 1f;
 		
 		public Transform MinRodPosition;
 		public Transform MaxRodPosition;
@@ -19,12 +19,15 @@ namespace IronTrauma {
 
 		XRGrabInteractable XRComponent => _activeRod.GetComponent<XRGrabInteractable>();
 
-		public void TryUseRod(float passedTime) {
+		public void TryUseRod(float consumedPower) {
 			if ( !HasRod ) {
 				return;
 			}
-			var rodUsage = UsageRate * passedTime;
-			_activeRod.LeftPower          -= rodUsage;
+			if ( consumedPower > MaxOutputRatePerSecond ) {
+				Debug.LogWarning("Can't consume more than max output. Clamped");
+				consumedPower = MaxOutputRatePerSecond;
+			}
+			_activeRod.LeftPower          -= consumedPower;
 			_activeRod.transform.position =  Vector3.Lerp(MinRodPosition.position, MaxRodPosition.position, 1 - RodPower);
 			if ( _activeRod.LeftPower <= 0 ) {
 				var rod = _activeRod;
