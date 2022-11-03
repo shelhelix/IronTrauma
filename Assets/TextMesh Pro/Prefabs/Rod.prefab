@@ -97,12 +97,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3930722898688643336}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd70dbea3f344217bab3765e72a01334, type: 3}
+  m_Script: {fileID: 11500000, guid: bed503398b614334bf078d30f5c7dc48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Rigidbody: {fileID: 3930722898688643341}
-  Power: 1
-  LeftPower: 1
+  Rod:
+    Power: 1
+    LeftPower: 0
   MeshRenderer: {fileID: 3930722898688643331}
   UnstableRodMaterial: {fileID: 2100000, guid: c34f44222537eb844bb6e253a8e75112, type: 2}
 --- !u!65 &3930722898688643340
