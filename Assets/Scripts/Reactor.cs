@@ -23,9 +23,6 @@ namespace IronTrauma {
 		}
 
 		void DistributePower() {
-			if ( Consumers.Count == 0 ) {
-				return;
-			}
 			var consumedPower = ConsumePower(MaxGenerationPotential);
 			ConsumeRods(consumedPower);
 		}
