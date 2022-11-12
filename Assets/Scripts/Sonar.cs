@@ -45,7 +45,10 @@ namespace IronTrauma {
             var minimapPosition     = (realObjectTransform.position - SubmarineWaveSource.position) * SonarScale + transform.position;
             miniCube.position   = minimapPosition;
             var aabb = hitObject.bounds;
-            miniCube.localScale = aabb.size * SonarScale * ObjectSizeMultiplier;
+            miniCube.localScale                      = aabb.size * SonarScale * ObjectSizeMultiplier;
+            if ( hitObject.gameObject.TryGetComponent<MeshFilter>(out var meshFilter) ) {
+                miniCube.GetComponent<MeshFilter>().mesh = meshFilter.mesh;
+            }
         }
         
         void OnDrawGizmosSelected() {
