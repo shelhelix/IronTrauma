@@ -8,6 +8,7 @@ namespace IronTrauma.Submarine.SonarSystem {
 		public Terrain SonarMiniTerrain;
 		
 		public void Init() {
+			SonarMiniTerrain.gameObject.SetActive(true);
 			var terrainDataClone = TerrainDataCloner.Clone(WorldTerrain.terrainData);
 			SonarMiniTerrain.terrainData = terrainDataClone;
 		}
