@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace IronTrauma {
+namespace IronTrauma.Submarine.ElectricalSystem.Nuclear {
 	public class ReactorSocket {
 		public const float MaxOutputRatePerSecond = 1f;
 

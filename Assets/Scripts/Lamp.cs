@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using IronTrauma.Submarine.ElectricalSystem;
+using UnityEngine;
 
 namespace IronTrauma {
-	public class Lamp : PowerConsumer {
+	public class Lamp : BasePowerConsumer {
 		public Light Light;
 		
 		public override void PowerAdd() {

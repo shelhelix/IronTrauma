@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace IronTrauma {
+namespace IronTrauma.Submarine.ElectricalSystem.Nuclear {
 	public class ReactorRodView : MonoBehaviour {
 		public Rigidbody  Rigidbody;
 		public ReactorRod Rod;

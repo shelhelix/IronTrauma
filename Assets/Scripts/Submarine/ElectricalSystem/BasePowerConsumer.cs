@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
-namespace IronTrauma {
-	public abstract class PowerConsumer : MonoBehaviour {
+namespace IronTrauma.Submarine.ElectricalSystem {
+	public abstract class BasePowerConsumer : MonoBehaviour {
 		public float NeededPowerPerSecond;
 
 		public abstract void PowerAdd();
