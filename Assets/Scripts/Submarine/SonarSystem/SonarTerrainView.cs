@@ -6,12 +6,10 @@ namespace IronTrauma.Submarine.SonarSystem {
 		
 		[Header("mini terrain object")]
 		public Terrain SonarMiniTerrain;
-		public TerrainCollider SonarMiniTerrainCollider;
 		
 		public void Init() {
 			var terrainDataClone = TerrainDataCloner.Clone(WorldTerrain.terrainData);
-			SonarMiniTerrain.terrainData         = terrainDataClone;
-			SonarMiniTerrainCollider.terrainData = terrainDataClone;
+			SonarMiniTerrain.terrainData = terrainDataClone;
 		}
 		
 		public void OnSonarUpdate(float sonarScale, Vector3 sonarCenter, Vector3 sonarViewCenter) {
