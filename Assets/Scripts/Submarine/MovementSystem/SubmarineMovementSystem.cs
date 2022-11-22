@@ -4,7 +4,7 @@ namespace IronTrauma.Submarine.EngineSystem {
 	public class SubmarineMovementSystem : MonoBehaviour {
 		public Rigidbody  SubmarineRigidbody;
 
-		public BallastTank     BallastTankTumbler;
+		public BallastTankTumbler     BallastTankTumbler;
 		public RotationTumbler RotationTumbler;
 		public EngineTumbler   EngineTumbler;
 		
