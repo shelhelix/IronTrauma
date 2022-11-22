@@ -16,8 +16,6 @@ namespace IronTrauma.Common {
 		public ActionBasedSnapTurnProvider SnapTurnProvider;
 		public ActionBasedContinuousTurnProvider ContinuousTurnProvider;
 
-		public LocomotionSystem LocomotionSystem;
-		
 		public void Start() {
 			TeleportationProvider.enabled  = SelectedMovementType == MovementType.Teleportation;
 			ContinuousMoveProvider.enabled = SelectedMovementType == MovementType.Locomotion;
